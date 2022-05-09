@@ -1,0 +1,157 @@
+﻿<Window x:Class="cinema.userPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cinema"
+        mc:Ignorable="d"
+        Height="740" Width="1280" WindowStartupLocation="CenterScreen" Icon="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\logo-removebg-preview.png" Title="LOOP">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="74*"/>
+            <RowDefinition Height="156*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="297*"/>
+            <ColumnDefinition Width="452*"/>
+            <ColumnDefinition Width="393*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Row="0" Grid.Column="0" >
+            <Button x:Name="ExitButtonUserPage" Margin="10,10" Content="Выход" Cursor="Hand" Background="#FF646165" Foreground="White" FontFamily="Bahnschrift SemiBold" HorizontalAlignment="Left" Click="ExitButtonUserPage_Click" Width="125" Grid.Row="4" Grid.RowSpan="2" >
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Height" Value="44"/>
+                        <Setter Property="Background" Value="Blue"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="Width" Value="125"/>
+
+                        <Setter Property="Template">
+
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+
+
+                                    <Border x:Name="border"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+
+                                        <Grid>
+                                            <Ellipse
+                                            Height="35"
+                                            Width="35" 
+                                            HorizontalAlignment="Left"
+                                                Margin="5,0,0,0"
+                                                Stroke ="White"
+                                                StrokeThickness="1"
+                                                >
+
+                                                <Ellipse.Fill>
+                                                    <ImageBrush
+                                                    ImageSource="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\выход.png"
+                                                        Stretch="UniformToFill"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Margin="35,0,0,0"
+                                                Content="{TemplateBinding Content}"/>
+                                        </Grid>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsDefaulted" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="#E04000"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="#E04000"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="Background" TargetName="border" Value="#7485D2"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="#7485D2"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Canvas>
+        <Canvas Grid.Column="2" Grid.Row="1" Margin="0,62,0,0" Grid.RowSpan="2">
+            <Label Content="Email" 
+                   FontSize="30" 
+                   Margin="180,0,0,0" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center"
+                   Height="50" 
+                   Width="81"/>
+
+        </Canvas>
+        <Canvas Grid.Column="2" Grid.Row="3">
+            <ComboBox x:Name="EmailChange" 
+                     FontSize="20" 
+                     Width="400" 
+                     Height="50" 
+                     Margin="25,10"
+                     VerticalAlignment="Top" 
+                     HorizontalAlignment="Center" 
+                     DropDownClosed="EmailChange_DropDownClosed" 
+                     />
+
+        </Canvas>
+        <Canvas Grid.Column="2" Grid.Row="4">
+            <Label Content="Пароль" 
+                   FontSize="30" 
+                   Margin="167,0,0,0" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Height="50" 
+                   Width="113"/>
+
+        </Canvas>
+        <Canvas Grid.Column="2" Grid.Row="5">
+            <TextBox x:Name="PasswordChange" 
+                     FontSize="20" 
+                     Width="400" 
+                     MaxLength="10" 
+                     Height="50" 
+                     VerticalAlignment="Top" 
+                     HorizontalAlignment="Center" 
+                     Margin="25,10"/>
+
+        </Canvas>
+        <Canvas Grid.Column="2" Grid.Row="6">
+            <ComboBox x:Name="RoleUser"
+                      Width="400" 
+                      Height="30" 
+                      Margin="25,10"/>
+
+        </Canvas>
+        <Canvas Grid.Column="2" Grid.Row="7">
+            <Button x:Name="EditUser"
+                    Content="Редактировать пользователя"
+                    FontSize="25"
+                    Width="400"
+                    Height="50"
+                    Margin="25,0" 
+                    Click="EditUser_Click"/>
+        </Canvas>
+        
+    </Grid>
+</Window>

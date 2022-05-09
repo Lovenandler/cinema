@@ -1,0 +1,144 @@
+﻿<Window x:Class="cinema.FilmDetailsEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cinema"
+        mc:Ignorable="d"
+        Title="LOOP" 
+        Height="740" 
+        Width="1280" 
+        WindowStartupLocation="CenterScreen" 
+        Background="Black"
+        Icon="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\logo-removebg-preview.png">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="207*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="115*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="230*"/>
+            <ColumnDefinition Width="136*"/>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="235*"/>
+            <ColumnDefinition Width="252*"/>
+            <ColumnDefinition Width="281*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="3">
+            <Image x:Name="CoverChange"
+                   Source="{Binding Cover}" 
+                   Width="400"
+                   Height="450"
+                   Margin="10,20"
+                   HorizontalAlignment="Left"
+                   />
+        </Canvas>
+        <Canvas Grid.Column="0" Margin="0,114,0,0" Grid.RowSpan="2" Grid.Row="3" Grid.ColumnSpan="3">
+            <Button x:Name="ChangeImgFilm"
+                    Content="Изменить изображение"
+                    FontSize="20"
+                    Width="250"
+                    Height="60"
+                    Margin="20,0"
+                    Style="{DynamicResource RoundedButton}" 
+                    Grid.Row="1" Click="ChangeImgFilm_Click"/>
+        </Canvas>
+        <Canvas Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="4">
+            <TextBox x:Name="FilmName"
+                   Text="{Binding Name_Film}" 
+                   HorizontalAlignment="Left" 
+                   Width="850"
+                   Height="80"
+                   MaxLength="120"
+                   TextWrapping="Wrap"
+                   FontSize="50"
+                   Margin="0,0"
+                   Background="Transparent"
+                   Foreground="White"
+                   FontFamily="Century Gothic"
+                   />
+        </Canvas>
+        <Canvas Grid.Column="3" Grid.ColumnSpan="4" Margin="0,89,0,1" Grid.RowSpan="2">
+            <TextBox   x:Name="DescriptionFilmTextBox"
+                       Text="{Binding Description_Film}"
+                       TextWrapping="Wrap"
+                       Margin="0,0"
+                       MaxLength="400"
+                       Width="850"
+                       Height="200"
+                       FontSize="15" 
+                       Background="Transparent"
+                       Foreground="White"
+                       FontFamily="Bahnschrift Light"
+                       />
+        </Canvas>
+        <Canvas Grid.Column="3" Grid.Row="1" Margin="0,207,0,0" Grid.RowSpan="2">
+            <TextBox   x:Name="AgeFilm"
+                       Text="{Binding Age_Restrictions, StringFormat={}{0} +}"
+                       FontSize="40"
+                       Margin="0,5"
+                       Height="70"
+                       MaxLength="3"
+                       Width="85"
+                       Foreground="White"
+                       Background="Transparent"
+                       />
+        </Canvas>
+        <Canvas Grid.Column="6" Grid.Row="5" Margin="0,86,0,0" Grid.RowSpan="3">
+            <Button x:Name="EditFilm"
+                    Width="200"
+                    Height="50"
+                    Margin="40,10"
+                    Content="Изменить"
+                    FontFamily="Century Gothic"
+                    FontSize="20" 
+                    Style="{DynamicResource RoundedButton}" 
+                    Click="EditFilm_Click" 
+                    >
+
+            </Button>
+        </Canvas>
+        <Canvas Grid.Column="0" Grid.Row="6" Margin="0,40,0,0" Grid.RowSpan="2">
+            <TextBlock x:Name="IDFilmTextBlock"
+                       Width="50"
+                       Height="30"
+                       Visibility="Hidden"
+                       Text="{Binding ID_Film}">
+            </TextBlock>
+        </Canvas>
+        <Canvas Grid.Column="5" Grid.Row="5" Grid.RowSpan="3" Margin="0,86,0,0">
+            <Button x:Name="DelFilm"
+                    Width="200"
+                    Height="50"
+                    Margin="40,10"
+                    Content="Удалить"
+                    FontFamily="Century Gothic"
+                    FontSize="20" 
+                    Style="{DynamicResource RoundedButton}" 
+                    Click="DelFilm_Click"
+                    >
+
+            </Button>
+        </Canvas>
+        <Canvas Grid.Column="1" Grid.Row="6" Grid.RowSpan="2">
+            <Button x:Name="ReturnFilm"
+                    Width="200"
+                    Height="50"
+                    Margin="13,10"
+                    Content="Назад"
+                    FontFamily="Century Gothic"
+                    FontSize="20" 
+                    Style="{DynamicResource RoundedButton}" Click="ReturnFilm_Click"
+                    />
+        </Canvas>
+        <Canvas></Canvas>
+    </Grid>
+</Window>

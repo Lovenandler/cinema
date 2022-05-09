@@ -1,0 +1,76 @@
+﻿<Window x:Class="cinema.adminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cinema"
+        mc:Ignorable="d"
+        Title="LOOP" 
+        Height="740" 
+        Width="1280" 
+        WindowStartupLocation="CenterScreen" 
+        Background="Black"
+        Icon="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\logo-removebg-preview.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="94*"/>
+            <RowDefinition Height="108*"/>
+            <RowDefinition Height="98*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="88*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="562*"/>
+            <ColumnDefinition Width="337*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Column="1" Grid.Row="0">
+            <Button x:Name="AddFilm"
+                    Width="500"
+                    Height="60"
+                    Content="Добавить фильм"
+                    FontSize="30"
+                    FontFamily="Century Gothic"
+                    Margin="30,10,0,0" 
+                    Style="{DynamicResource RoundedButton}" 
+                    Click="AddFilm_Click"/>
+        </Canvas>
+        <Canvas Grid.Column="1" Margin="0,91,0,0" Grid.RowSpan="2">
+            <Button x:Name="EditFilm"
+                    Width="500"
+                    Height="60"
+                    Content="Редактировать фильм"
+                    FontSize="30"
+                    FontFamily="Century Gothic"
+                    Margin="30,10,0,0" 
+                    Style="{DynamicResource RoundedButton}" 
+                    Click="EditFilm_Click"/>
+
+        </Canvas>
+        <Canvas Grid.Column="1" Grid.Row="7">
+            <Button x:Name="AppFilm"
+                    Width="500"
+                    Height="60"
+                    Content="Пользовательский просмотр"
+                    FontSize="30"
+                    FontFamily="Century Gothic"
+                    Margin="30,10,0,0" 
+                    Style="{DynamicResource RoundedButton}" 
+                    Click="AppFilm_Click"/>
+        </Canvas>
+        <Canvas Grid.Column="1" Grid.Row="2">
+            <Button x:Name="EditUser"
+                    Width="500"
+                    Height="60"
+                    Content="Редактировать пользователя"
+                    FontSize="30"
+                    FontFamily="Century Gothic"
+                    Margin="30,10,0,0" 
+                    Style="{DynamicResource RoundedButton}" Click="EditUser_Click"/>
+
+        </Canvas>
+    </Grid>
+</Window>

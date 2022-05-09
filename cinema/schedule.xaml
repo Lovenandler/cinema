@@ -1,0 +1,67 @@
+﻿<Page x:Class="cinema.schedule"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:cinema"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="schedule">
+
+    <Grid Background="Black">
+        <DataGrid x:Name="scheduleList" ColumnWidth="*" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="Gray" AutoGenerateColumns="False" Margin="-3,-3,-2,1" Background="Black" HeadersVisibility="None" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.ColumnHeaderStyle>
+                <Style />
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                
+                <DataGridTextColumn Width="*" Binding="{Binding Path=Name_Film}" FontSize="40" FontFamily="Century Gothic">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="250"  Binding="{Binding Path=Name_cinema}" FontSize="20">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100"  
+                                    Binding="{Binding Path=Date_FilmSession, StringFormat=\{0:dd.MM.yyyy\}}"
+                                    FontSize="20">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn  IsReadOnly="True" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Path=Time_FilmSession, StringFormat=\{0:HH:mm\}}" 
+                                    Width="44" 
+                                    Height="40" 
+                                    FontSize="15" 
+                                    BorderThickness="3" 
+                                    Click="Button_Click">
+                                
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

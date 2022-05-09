@@ -1,0 +1,432 @@
+﻿<Window x:Name="filmslist" x:Class="cinema.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cinema"
+        mc:Ignorable="d"
+        
+        Height="740" Width="1280" WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        WindowState="Normal" FontFamily="Poppins" Icon="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\logo-removebg-preview.png" Title="LOOP">
+
+
+    <Grid Margin="0,6,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+        <Grid x:Name="gridMenu" Background="#6C4B5E" Margin="0,-8,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row ="0" Margin="0,-8,0,5">
+                <Image   Height="80" Width="75" Source="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\logo-removebg-preview.png" Margin="20,37,0,0" HorizontalAlignment="Left"/>
+                    <Label  Margin="70,-95,0,0" Foreground="Pink"  Content="LOOP" FontWeight="Bold" FontSize="25" HorizontalContentAlignment="Center" Width="126" Height="64" VerticalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="0,128,0,0" Grid.RowSpan="2">
+
+                    <Button x:Name="Films" Content="Фильмы" Margin="-3,55,0,0" Background="Transparent" Foreground="White" Cursor="Hand" FontFamily="Bahnschrift SemiBold" Click="Films_Click" Width="154">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Height" Value="44"/>
+                                <Setter Property="Background" Value="Blue"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="125"/>
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                <Grid>
+                                                    <Ellipse
+                                            Height="35"
+                                            Width="35" 
+                                            HorizontalAlignment="Left"
+                                                Margin="5,0,0,0"
+                                                Stroke ="White"
+                                                StrokeThickness="1"
+                                                >
+
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush
+                                                    ImageSource="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\icons8-film-100 (1).png"
+                                                        Stretch="UniformToFill" Opacity="1"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Margin="35,0,0,0"
+                                                Content="{TemplateBinding Content}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="#56384C"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="#56384C"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="#FFDE85"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FFDE85"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="false">
+                                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="Ticket" Content="Билеты" Margin="-3,10,0,0" Background="Transparent" Foreground="White" Width="154"  Cursor="Hand" FontFamily="Bahnschrift SemiBold" Click="Ticket_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Height" Value="44"/>
+                                <Setter Property="Background" Value="Blue"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="125"/>
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                <Grid>
+                                                    <Ellipse
+                                            Height="35"
+                                            Width="35" 
+                                            HorizontalAlignment="Left"
+                                                Margin="5,0,0,0"
+                                                Stroke ="White"
+                                                StrokeThickness="1"
+                                                >
+
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush
+                                                    ImageSource="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\icons8-добавить-билет-80.png"
+                                                        Stretch="UniformToFill"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Margin="35,0,0,0"
+                                                Content="{TemplateBinding Content}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="#56384C"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="#56384C"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="#FFDE85"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FFDE85"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="false">
+                                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="ScheduleButton" Content="Расписание" Background="Transparent" Foreground="White" Cursor="Hand" FontFamily="Bahnschrift SemiBold" Click="Button_Click_1" Margin="-5,10,0,0" Width="154">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Height" Value="44"/>
+                                <Setter Property="Background" Value="Blue"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="125"/>
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                <Grid>
+                                                    <Ellipse
+                                                Height="35"
+                                                Width="35" 
+                                                HorizontalAlignment="Left"
+                                                Margin="5,0,0,0"
+                                                Stroke ="White"
+                                                StrokeThickness="1"
+                                                >
+
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush
+                                                        ImageSource="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\icons8-посмотреть-расписание-80.png"
+                                                        Stretch="UniformToFill"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Margin="35,0,0,0"
+                                                Content="{TemplateBinding Content}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="#56384C"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="#56384C"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="#FFDE85"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FFDE85"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="false">
+                                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                <Button x:Name="Search" Width ="154"  Content="Поиск" Margin="-3,10,0,0" Click="Search_Click" Foreground="White" Background="Transparent" Cursor="Hand" FontFamily="Bahnschrift SemiBold">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Height" Value="44"/>
+                                <Setter Property="Background" Value="Blue"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="125"/>
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                <Grid>
+                                                    <Ellipse
+                                            Height="35"
+                                            Width="35" 
+                                            HorizontalAlignment="Left"
+                                                Margin="5,0,0,0"
+                                                Stroke ="White"
+                                                StrokeThickness="1"
+                                                >
+
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush
+                                                    ImageSource="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\icons8-поиск-90.png"
+                                                        Stretch="UniformToFill"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Margin="35,0,0,0"
+                                                Content="{TemplateBinding Content}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="#56384C"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="#56384C"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="#F1CA68"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="#F1CA68"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="false">
+                                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="Settings" Margin="-3,10,0,0" Content="Настройки" Click="Button_Click" Foreground="White" Background="Transparent" Width="154"  Cursor="Hand" FontFamily="Bahnschrift SemiBold">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Height" Value="44"/>
+                                <Setter Property="Background" Value="Blue"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="125"/>
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="border"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                <Grid>
+                                                    <Ellipse
+                                            Height="35"
+                                            Width="35" 
+                                            HorizontalAlignment="Left"
+                                                Margin="5,0,0,0"
+                                                Stroke ="White"
+                                                StrokeThickness="1"
+                                                >
+
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush
+                                                    ImageSource="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\icons8-настройки-100.png"
+                                                        Stretch="UniformToFill"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Margin="40,0,0,0"
+                                                Content="{TemplateBinding Content}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="#56384C"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="#56384C"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="#7485D2"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="#7485D2"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="false">
+                                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="ExitButton" Width="154"  Margin="-3,10,0,0" Content="Выход"  Click="ExitButton_Click" Cursor="Hand" Background="Transparent" Foreground="White" FontFamily="Bahnschrift SemiBold" >
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Height" Value="44"/>
+                                <Setter Property="Background" Value="Blue"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="125"/>
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+
+
+                                            <Border x:Name="border"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+
+                                                <Grid>
+                                                    <Ellipse
+                                            Height="35"
+                                            Width="35" 
+                                            HorizontalAlignment="Left"
+                                                Margin="5,0,0,0"
+                                                Stroke ="White"
+                                                StrokeThickness="1"
+                                                >
+
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush
+                                                    ImageSource="C:\Users\User\OneDrive\Рабочий стол\Стади\слезы болгарки 3\Технология разработки и защиты баз данных\Курсовая\cinema\cinema\images\icons8-выход-100.png"
+                                                        Stretch="UniformToFill"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                Margin="35,0,0,0"
+                                                Content="{TemplateBinding Content}"/>
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsDefaulted" Value="true">
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="border" Value="#56384C"/>
+                                                <Setter Property="BorderBrush" TargetName="border" Value="#56384C"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border" Value="Red"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="Red"/>
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="false">
+                                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+        <Grid Grid.Column="1" Margin="0,-7,0,0" Background="#C0C9EA">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="1" CornerRadius="10" Background="Transparent">
+                    <Frame x:Name="frameFilms" Source="films.xaml" Navigated="frameFilms_Navigated" NavigationUIVisibility="Hidden" Margin="3,0,0,0"/>
+                </Border>
+
+            </Grid>
+        </Grid>
+
+   
+</Window>
